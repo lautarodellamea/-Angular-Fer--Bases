@@ -1,0 +1,32 @@
+<h3>Listado de Héroes</h3>
+
+<!-- <ul class="list-group">
+  <li class="list-group-item">Spiderman</li>
+  <li class="list-group-item">Ironman</li>
+  <li class="list-group-item">Hulk</li>
+  <li class="list-group-item">Thor</li>
+  <li class="list-group-item">Capitan America</li>
+</ul> -->
+
+<button *ngIf="heroNames.length > 0" (click)="removeLastHero()" class="btn btn-danger mb-3">Borrar ultimo heroe</button>
+
+
+<!-- el "noBorrado" se conocce en angular como una referencia local -->
+<div *ngIf="deletedHero; else noBorrado">
+  <h3>Heroe borrado <small class="text-danger">{{deletedHero}}</small></h3>
+</div>
+
+<!-- componente de angular que viene definido de manera global -->
+<!-- es como un div que no existe, solo muestra su contenido, es como un fragment "<></>" -->
+<!-- el "noBorrado" se conocce en angular como una referencia local -->
+<ng-template #noBorrado>
+  <h3>No ha borrado nada.</h3>
+</ng-template>
+
+
+
+
+
+<ul class="list-group">
+  <li *ngFor="let name of heroNames" class="list-group-item">{{name}}</li>
+</ul>
